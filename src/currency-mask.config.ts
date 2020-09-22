@@ -10,6 +10,7 @@ export interface CurrencyMaskConfig {
   suffix: string;
   thousands: string;
   nullable: boolean;
+  decimalAlternative?: string,
   min?: number;
   max?: number;
   inputMode? : CurrencyMaskInputMode;

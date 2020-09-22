@@ -39,9 +39,9 @@ export class InputService {
     }
 
     addNumber(keyCode: number): void {
-        const {decimal, precision, inputMode} = this.options;
+        const {decimal, decimalAlternative, precision, inputMode, thousands} = this.options;
         let keyChar = String.fromCharCode(keyCode);
-        const isDecimalChar = keyChar === this.options.decimal;
+        const isDecimalChar = (keyChar === decimal || keyChar === decimalAlternative );
 
         if (!this.rawValue) {
             this.rawValue = this.applyMask(false, keyChar);
@@ -58,6 +58,7 @@ export class InputService {
             let selectionEnd = this.inputSelection.selectionEnd;
             const rawValueStart = this.rawValue.substring(0, selectionStart);
             let rawValueEnd = this.rawValue.substring(selectionEnd, this.rawValue.length);
+            let rawValueLastChar = rawValueEnd[0];
 
             // In natural mode, replace decimals instead of shifting them.
             const inDecimalPortion = rawValueStart.indexOf(decimal) !== -1;
@@ -68,7 +69,7 @@ export class InputService {
             const newValue = rawValueStart + keyChar + rawValueEnd;
             let nextSelectionStart = selectionStart + 1;
             const isDecimalOrThousands = isDecimalChar || keyChar === this.options.thousands;
-            if (isDecimalOrThousands && keyChar === rawValueEnd[0]) {
+            if (isDecimalOrThousands && (rawValueLastChar === decimal || rawValueLastChar === decimalAlternative || rawValueLastChar === thousands)) {
                 // If the cursor is just before the decimal or thousands separator and the user types the
                 // decimal or thousands separator, move the cursor past it.
                 nextSelectionStart++;
