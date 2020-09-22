@@ -1,8 +1,8 @@
 {
   "generator-angular-library": {
     "githubUsername": "nbfontana",
-    "githubRepoName": "ngx-currency",
-    "npmModuleName": "ngx-currency",
+    "githubRepoName": "ngx-currency-custom",
+    "npmModuleName": "ngx-currency-custom",
     "moduleGlobal": "ngxCurrency",
     "ngModuleName": "NgxCurrencyModule",
     "projectTitle": "Ngx Currency",
