@@ -14,7 +14,7 @@ export class InputHandler {
         setTimeout(() => {
             this.inputService.updateFieldValue();
             this.setValue(this.inputService.value);
-            this.onModelChange(this.inputService.value);
+            if (this.onModelChange) {this.onModelChange(this.inputService.value)};
         }, 0);
     }
 
@@ -26,7 +26,7 @@ export class InputHandler {
 
         if (Math.abs(rawValueLength - storedRawValueLength) != 1) {
             this.inputService.updateFieldValue(selectionStart);
-            this.onModelChange(this.inputService.value);
+            if (this.onModelChange) {this.onModelChange(this.inputService.value)};
             return;
         }
 
@@ -42,7 +42,7 @@ export class InputHandler {
 
                 // Then backspace it.
                 this.inputService.removeNumber(8);
-                this.onModelChange(this.inputService.value);  
+                if (this.onModelChange) {this.onModelChange(this.inputService.value)};  
             }, 0);
         }
 
@@ -65,14 +65,14 @@ export class InputHandler {
                 this.clearValue();
             } else {
                 this.inputService.removeNumber(keyCode);
-                this.onModelChange(this.inputService.value);
+                if (this.onModelChange) {this.onModelChange(this.inputService.value)};
             }
         }
     }
 
     clearValue() {
         this.setValue(this.inputService.isNullable() ? null : 0);
-        this.onModelChange(this.inputService.value);
+        if (this.onModelChange) {this.onModelChange(this.inputService.value)};
     }
 
     handleKeypress(event: any): void {
@@ -117,7 +117,7 @@ export class InputHandler {
         setTimeout(() => {
             this.inputService.updateFieldValue();
             this.setValue(this.inputService.value);
-            this.onModelChange(this.inputService.value);
+            if (this.onModelChange) {this.onModelChange(this.inputService.value)};
         }, 1);
     }
 
