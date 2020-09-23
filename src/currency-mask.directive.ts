@@ -74,7 +74,7 @@ export class CurrencyMaskDirective implements AfterViewInit, ControlValueAccesso
 
   @HostListener("blur", ["$event"])
   handleBlur(event: any) {
-    this.inputHandler.getOnModelTouched().apply(event);
+    if (this.inputHandler.getOnModelTouched()) { this.inputHandler.getOnModelTouched().apply(event); };
   }
 
   @HostListener("cut", ["$event"])

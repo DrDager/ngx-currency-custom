@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.6](https://github.com/DrDager/ngx-currency-custom/compare/v2.5.1...v2.5.6) (2020-09-22)
+
 ### [2.5.1](https://github.com/nbfontana/ngx-currency/compare/v2.4.1...v2.5.1) (2020-08-05)
 
 

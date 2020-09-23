@@ -110,7 +110,7 @@ export class InputHandler {
                 break;
         }
 
-        this.onModelChange(this.inputService.value);
+        if (this.onModelChange) {this.onModelChange(this.inputService.value)};
     }
 
     handlePaste(event: any): void {
