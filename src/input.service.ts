@@ -236,9 +236,9 @@ export class InputService {
                 selectionStart--;
 
                 // If previous char isn't a number, go back one more.
-                if (!this.rawValue.substr(selectionStart, 1).match(/\d/)) {
-                    selectionStart--;
-                }
+                // if (!this.rawValue.substr(selectionStart, 1).match(/\d/)) {
+                //     selectionStart--;
+                // }
 
                 // In natural mode, jump backwards when in decimal portion of number.
                 if (inputMode === CurrencyMaskInputMode.NATURAL && decimalIndex < selectionEnd) {
